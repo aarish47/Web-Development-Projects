@@ -1,0 +1,463 @@
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles for the body */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Styles for the header */
+header {
+  background-color: #333;
+  padding: 1em 0;
+}
+
+/* Styles for the navigation bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+/* Logo styling */
+.logo {
+  height: 40px;
+}
+
+/* Navigation menu styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+/* Navigation links styling */
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease, border-bottom 0.3s ease; /* Add transition for color and border-bottom */
+}
+
+/* Hover effect for non-dropdown navigation links */
+nav ul li a:hover {
+  color: #f90; /* Hover color */
+}
+
+/* Dropdown menu styling */
+.dropdown {
+  position: relative;
+}
+
+/* Hidden dropdown content, shown on hover */
+.dropdown-content {
+  margin-top: 2px;
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+/* Dropdown content links */
+.dropdown-content a {
+  display: block;
+  padding: 0.5em 1em;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+  background-color: #f90; /* Hover background color */
+  color: white;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Call-to-action button styles */
+.cta {
+  background-color: #f90;
+  color: white;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for call-to-action button */
+.cta:hover {
+  background-color: #f70; /* Darker orange on0 hover */
+}
+
+/* Hero section styling */
+.hero {
+  text-align: center;
+  padding: 2em 1em;
+  background: #f4f4f4;
+  border-radius: 5px;
+}
+
+/* Hero section main heading */
+.hero h1 {
+  margin: 0 0 0.5em;
+  font-family: "Roboto", sans-serif; /* Example of adding a friendly bold font */
+}
+
+/* Hero section paragraph */
+.hero p {
+  margin: 0 0 1em;
+}
+
+/* Hero section buttons */
+.hero .cta,
+.hero .secondary-cta {
+  display: inline-block;
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Main call-to-action button in hero section */
+.hero .cta {
+  background-color: #f90;
+  color: white;
+}
+
+/* Hover effect for main call-to-action button in hero section */
+.hero .cta:hover {
+  background-color: #f70; /* Darker orange on hover */
+}
+
+/* Secondary call-to-action button in hero section */
+.hero .secondary-cta {
+  background-color: white;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* General section styling */
+section {
+  padding: 2em 1em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Centered section headings */
+section h2 {
+  text-align: center;
+}
+
+/* Section headings styling with underline effect */
+section h2 {
+  position: relative; /* Ensure the h2 is positioned relative */
+  display: inline-block; /* Ensures the h2 behaves as inline-block */
+  text-align: center; /* Centers the text horizontally */
+  margin: 0 auto; /* Centers the block itself */
+}
+
+/* Center align all content within the section */
+section {
+  text-align: center; /* Ensures the section centers its content */
+}
+
+/* Underline effect for section headings */
+section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.5px;
+  background-color: gray;
+  transition: width 0.5s ease; /* Smooth transition for width */
+}
+
+/* Expand underline on hover for section headings */
+section h2:hover::after {
+  width: 100%; /* Expand the width on hover */
+}
+
+/* Styles for features, steps, and pricing plans */
+.feature,
+.step,
+.pricing-plan {
+  margin: 1em 0;
+  padding: 1em;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left; /* Align text to the left */
+}
+
+/* Pricing plan price styling */
+.pricing-plan .price {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+/* Section title styling */
+#pricing h2 {
+  font-size: 32px;
+  text-align: center;
+}
+
+/* Pricing grid container styling */
+.pricing-grid {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 1em;
+  flex-wrap: wrap;
+}
+
+/* Pricing plan card styling */
+.pricing-plan {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  text-align: center;
+  flex: 1 1 30%;
+  max-width: 300px;
+  margin: 1em 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Pricing plan hover effect */
+.pricing-plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Plan title styling */
+.pricing-plan h3 {
+  font-size: 23px;
+  margin-bottom: 1px;
+}
+
+/* Plan price styling */
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+/* Call-to-action button inside pricing plans */
+.pricing-plan .cta {
+  background-color: #f90;
+  color: white;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for call-to-action button */
+.pricing-plan .cta:hover {
+  background-color: #f70;
+}
+
+/* How It Works section title styling */
+#how-it-works h2 {
+  font-size: 36px;
+  text-align: center;
+  color: #333;
+}
+
+/* Steps container styling for rows */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1em;
+}
+
+/* Individual step card styling */
+.step {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.1em;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Step card hover effect */
+.step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Step title styling */
+.step h3 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Step description styling */
+.step p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Shared styles for section titles */
+section h2 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 2px;
+  color: #333;
+}
+
+/* Our Products and How It Works section styling */
+#our-products,
+#how-it-works {
+  padding: 4em 1em; /* Adjust padding as needed */
+  border-radius: 5px;
+  margin-bottom: 1px; /* Add margin bottom for separation */
+  text-align: center; /* Center align content */
+}
+
+/* Steps container styling for rows */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1em;
+}
+
+/* Individual step card styling */
+.step {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Step card hover effect */
+.step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Step title styling */
+.step h3 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Step description styling */
+.step p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 1em 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Footer links styling */
+footer .footer-links {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2em;
+}
+
+/* Footer links list styling */
+footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer-links ul li {
+  margin-bottom: 0.5em;
+}
+
+/* Footer links anchor styling */
+footer .footer-links ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for footer links */
+footer .footer-links ul li a:hover {
+  color: #f90;
+}
+
+/* Footer bottom section styling */
+footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1em 1em 0;
+  border-top: 1px solid #555;
+}
+
+/* Footer bottom section images */
+footer .footer-bottom img {
+  height: 40px;
+}
+
+/* Footer bottom section paragraph */
+footer .footer-bottom p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* Social media links styling in footer */
+footer .social-media {
+  display: flex;
+  gap: 1em;
+}
+
+/* Social media links anchor styling */
+footer .social-media a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for social media links */
+footer .social-media a:hover {
+  color: #f90;
+}
