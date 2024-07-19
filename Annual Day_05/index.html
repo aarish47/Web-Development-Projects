@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Day Teacher Review</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 style="font-family: 'Segoe-Script', cursive"><strong>Annual Day Teacher Review</strong></h1>
+        <h2 style="font-family: 'Segoe-Script', cursive"><strong>Students' Feedback and Exam Results</strong></h2>
+    </header>
+
+    <section id="teacher-review">
+        <h3 style="font-family: 'Segoe-Script', cursive"><strong>Teacher Review Questions</strong></h3>
+        <div class="question" id="question1">
+            <p style="font-family: 'Segoe-Script', cursive">Staff: What qualities do you admire in your Math teacher?</p>
+            <input type="text" id="responseMath" placeholder="Student's response" style="font-family: 'Segoe-Script', cursive">
+            <button onclick="showNextQuestion(1)" style="margin-top: 10px;">Next</button>
+        </div>
+        <div class="question" id="question2" style="display: none;">
+            <p style="font-family: 'Segoe-Script', cursive">Staff: What skills does your English teacher excel in?</p>
+            <input type="text" id="responseEnglish" placeholder="Student's response" style="font-family: 'Segoe-Script', cursive">
+            <button onclick="showNextQuestion(2)" style="margin-top: 10px;">Next</button>
+        </div>
+        <div class="question" id="question3" style="display: none;">
+            <p style="font-family: 'Segoe-Script', cursive">Staff: How does your Biology teacher make learning enjoyable?</p>
+            <input type="text" id="responseBiology" placeholder="Student's response" style="font-family: 'Segoe-Script', cursive">
+            <button onclick="showNextQuestion(3)" style="margin-top: 10px;">Next</button>
+        </div>
+        <div class="question" id="question4" style="display: none;">
+            <p>Staff: What qualities do you admire in your Science teacher?</p>
+            <input type="text" id="responseScience" placeholder="Student's response">
+            <button onclick="showNextQuestion(4)" style="margin-top: 10px;">Next</button>
+        </div>
+        <div class="question" id="question5" style="display: none;">
+            <p>Staff: How does your Computer Science teacher engage the class?</p>
+            <input type="text" id="responseComputer" placeholder="Student's response">
+            <button onclick="submitReviews()" style="margin-top: 10px;">Submit Reviews</button>
+        </div>
+    </section>
+
+    <section id="teacher-qualities">
+        <h3 style="font-family: 'Segoe-Script', cursive"><strong>Mark the Qualities of Your Teacher</strong></h3>
+        <form id="qualitiesForm">
+            <div class="qualities-column">
+                <div class="quality">
+                    <input type="checkbox" id="knowledgeable" name="qualities" value="Knowledgeable">
+                    <label for="knowledgeable" style="font-family: 'Segoe-Script', cursive">Knowledgeable</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="communicator" name="qualities" value="Effective Communicator">
+                    <label for="communicator" style="font-family: 'Segoe-Script', cursive">Effective Communicator</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="patient" name="qualities" value="Patient">
+                    <label for="patient" style="font-family: 'Segoe-Script', cursive">Patient</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="empathy" name="qualities" value="Empathetic">
+                    <label for="empathy" style="font-family: 'Segoe-Script', cursive">Empathetic</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="passionate" name="qualities" value="Passionate">
+                    <label for="passionate" style="font-family: 'Segoe-Script', cursive">Passionate</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="organized" name="qualities" value="Organized">
+                    <label for="organized" style="font-family: 'Segoe-Script', cursive">Organized</label>
+                </div>
+            </div>
+            <div class="qualities-column">
+                <div class="quality">
+                    <input type="checkbox" id="creative" name="qualities" value="Creative">
+                    <label for="creative" style="font-family: 'Segoe-Script', cursive">Creative</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="adaptable" name="qualities" value="Adaptable">
+                    <label for="adaptable" style="font-family: 'Segoe-Script', cursive">Adaptable</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="fair" name="qualities" value="Fair">
+                    <label for="Fair" style="font-family: 'Segoe-Script', cursive">Fair and Just</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="rolemodel" name="qualities" value="Rolemodel">
+                    <label for="Rolemodel" style="font-family: 'Segoe-Script', cursive">Role Model</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="lifelonglearner" name="qualities" value="Lifelonglearner">
+                    <label for="Lifelonglearner" style="font-family: 'Segoe-Script', cursive">Life-long learner</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="supportive" name="qualities" value="Supportive">
+                    <label for="Supportive" style="font-family: 'Segoe-Script', cursive">Supportive</label>
+                </div>
+                <div class="quality">
+                    <input type="checkbox" id="positiveattitude" name="qualities" value="Positiveattitude">
+                    <label for="Positiveattitude" style="font-family: 'Segoe-Script', cursive">Positive Attitude</label>
+                </div>
+            </div>
+            <button type="button" onclick="submitQualities()" style="font-family: 'Segoe-Script', cursive">Submit Qualities</button>
+        </form>
+    </section>    
+
+    <section id="student-responses">
+        <h3 style="font-family: 'Segoe-Script', cursive"><strong>Student Responses</strong></h3>
+        <div id="responsesOutput" style="font-family: 'Segoe-Script', cursive"></div>
+    </section>
+
+    <section id="faq">
+        <h3 style="font-family: 'Segoe-Script', cursive"><strong>FAQ</strong></h3>
+        <div class="faq-item">
+            <h4 style="font-family: 'Segoe-Script', cursive">How are the reviews collected?</h4>
+            <p style="font-family: 'Segoe-Script', cursive">Students provide feedback on their teachers' qualities, skills, and teaching performance.</p>
+        </div>
+        <div class="faq-item">
+            <h4 style="font-family: 'Segoe-Script', cursive">Who evaluates the reviews?</h4>
+            <p style="font-family: 'Segoe-Script', cursive">The reviews are evaluated by a panel of staff members.</p>
+        </div>
+        <div class="faq-item">
+            <h4 style="font-family: 'Segoe-Script', cursive">How are the grades assigned?</h4>
+            <p style="font-family: 'Segoe-Script', cursive">Grades are based on students' exam performance throughout the year.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p style="font-family: 'Segoe-Script', cursive">&copy; 2024 Annual Day Event. All rights reserved.</p>
+    </footer>
+</body>
+</html>
